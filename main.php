@@ -26,7 +26,7 @@ $replyToken = '';
 
 
 $myfile = fopen("ccc.txt", "a") or die("Unable to open file!");
-fwrite($myfile, json_decode($events));
+fwrite($myfile, json_encode($events));
 fclose($myfile);
 
 
