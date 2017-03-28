@@ -25,7 +25,7 @@ $customer_id = '8800000000';
 $replyToken = '';
 
 
-$myfile = fopen("ccc.txt", "a") or die("Unable to open file!");
+$myfile = fopen("event.txt", "a") or die("Unable to open file!");
 fwrite($myfile, json_encode($events));
 fclose($myfile);
 
@@ -35,6 +35,11 @@ if (!is_null($events['events'])) {
 		$event = new EventInfo($event);
 		if(checkAuthen($user_id)) {
 			$customer = new CustomerInfo($customer_id, $event->getReplyToken());
+
+			$myfile = fopen("customer.txt", "a") or die("Unable to open file!");
+			fwrite($myfile, json_encode($customer));
+			fclose($myfile);
+
 			$fault = $customer->getFault();
 			$message = $fault;
 			if($fault) {
@@ -46,7 +51,9 @@ if (!is_null($events['events'])) {
 		} else {
 
 			$message = generateLinkFirstAuthen($event->getSourceUserId());
-			echo $message;
+			$myfile = fopen("message.txt", "a") or die("Unable to open file!");
+			fwrite($myfile, json_encode($customer));
+			fclose($myfile);
 			$event->responseChat($token, $message);
 
 		}
