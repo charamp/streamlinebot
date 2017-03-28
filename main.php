@@ -52,7 +52,7 @@ if (!is_null($events['events'])) {
 
 			$message = generateLinkFirstAuthen($event->getSourceUserId());
 			$myfile = fopen("message.txt", "a") or die("Unable to open file!");
-			fwrite($myfile, json_encode($customer));
+			fwrite($myfile, json_encode($message));
 			fclose($myfile);
 			$event->responseChat($token, $message);
 
