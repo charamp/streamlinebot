@@ -24,6 +24,12 @@ $user_id = 'hiphip';
 $customer_id = '8800000000';
 $replyToken = '';
 
+
+$myfile = fopen("ccc.txt", "a") or die("Unable to open file!");
+fwrite($myfile, json_decode($events));
+fclose($myfile);
+
+
 if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		$event = new EventInfo($event);
