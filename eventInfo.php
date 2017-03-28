@@ -57,7 +57,7 @@
 
 			$messages = ['type' => 'text', 'text' => $message];
 			$url = 'https://api.line.me/v2/bot/message/push';
- 			$data = ['to' => $this->reply_token, 'messages' => [$messages]];
+ 			$data = ['to' => $this->source_user_id, 'messages' => [$messages]];
 
  			$myfile = fopen("data.txt", "a") or die("Unable to open file!");
 			fwrite($myfile, json_encode($data));
