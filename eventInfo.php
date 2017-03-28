@@ -53,7 +53,7 @@
 			return $this->message_type;
 		}
 
-		public function responseChat($token, $message)) {
+		public function responseChat($token, $message) {
 
 			$messages = ['type' => 'text', 'text' => $message];
 			$url = 'https://api.line.me/v2/bot/message/push';
