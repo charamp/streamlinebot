@@ -43,18 +43,18 @@ if (!is_null($events['events'])) {
 			$fault = $customer->getFault();
 			$message = $fault;
 			if($fault) {
-				$event->responseChat($token, $message);
+				$event->responseChat($lineAccessToken, $message);
 			} else {
-				$event->responseChat($token, $message);
+				$event->responseChat($lineAccessToken, $message);
 			}
 
 		} else {
 
 			$message = generateLinkFirstAuthen($event->getSourceUserId());
-			$myfile = fopen("message.txt", "a") or die("Unable to open file!");
-			fwrite($myfile, json_encode($message));
+			$myfile = fopen("e.txt", "a") or die("Unable to open file!");
+			fwrite($myfile, json_encode($event));
 			fclose($myfile);
-			$event->responseChat($token, $message);
+			$event->responseChat($lineAccessToken, $message);
 
 		}
 	}
