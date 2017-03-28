@@ -5,7 +5,7 @@ require("eventInfo.php");
 function generateLinkFirstAuthen($user_id) {
 	$prefix = 'http://10.104.140.84/streambot/verify.php?vid=';
 	$vid = openssl_encrypt($user_id, 'AES-256-CFB1', $GLOBALS['secretKey']);
-
+	$link = $prefix . $vid;
 	return $link;
 }
 
